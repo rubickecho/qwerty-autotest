@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "update:snapshots": "playwright test --update-snapshots"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
