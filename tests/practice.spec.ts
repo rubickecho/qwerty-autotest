@@ -1,4 +1,18 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
+
+const pressWord = async (page: Page, word: string) => {  
+  const letters = word.split('');
+  for (const letter of letters) {
+    await page.keyboard.press(letter);
+  }
+}
+
+const pressWords = async (page: Page, words: string[]) => {  
+  for (const word of words) {
+    await pressWord(page, word);
+    await page.waitForTimeout(300);
+  }
+}
 
 test.describe('Practice', () => {
   test.beforeEach(async ({ page }) => {
@@ -11,20 +25,15 @@ test.describe('Practice', () => {
     await expect(await page.getByText('按任意键开始').isVisible()).toBeTruthy();
 
     await page.keyboard.press('Enter');
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(300);
     await expect(await page.locator('p').getByText('按任意键开始').isHidden()).toBeTruthy();
   });
 
   test('Enter the correct word', async ({ page }) => {
-    const word = 'cancel';
     await page.keyboard.press('Enter');
 
+    await pressWord(page, 'cancel');
 
-    const pressPromiseAll = word.split('').map((key) => {
-      return page.keyboard.press(key);
-    })
-
-    await Promise.all(pressPromiseAll);
     await page.locator('div', { hasText: '正确率' }).locator('span', { hasText: '100' }).click();
 
     // auto show next word: explosive
@@ -40,14 +49,9 @@ test.describe('Practice', () => {
   });
 
   test('Enter the wrong word', async ({ page }) => {
-    const word = 'canca';
     await page.keyboard.press('Enter');
 
-    const pressPromiseAll = word.split('').map((key) => {
-      return page.keyboard.press(key);
-    })
-
-    await Promise.all(pressPromiseAll);
+    await pressWord(page, 'canca');
 
     await page.locator('div', { hasText: '输入数' }).locator('span', { hasText: /^5$/ }).first().click();
     await page.locator('div', { hasText: '正确数' }).locator('span', { hasText: /^4$/ }).first().click();
@@ -77,5 +81,25 @@ test.describe('Practice', () => {
 
     await page.waitForTimeout(500);
     await expect(page.locator('span', { hasText: /^c$/}).first()).toHaveClass(/text-gray-600/);
+  });
+
+  test('Complete the exercises for 1 chapter, enter the next chapter', async ({ page }) => {
+    await page.keyboard.press('Enter');
+
+    const chapter1 = [
+      'cancel', 'explosive', 'numerous', 'govern', 'analyse',
+      'discourage', 'resemble', 'remote', 'salary', 'pollution',
+      'pretend', 'kettle', 'wreck', 'drunk', 'calculate',
+      'persistent', 'sake', 'conceal', 'audience', 'meanwhile'
+    ]
+
+    await pressWords(page, chapter1);
+
+    await expect(await page.getByText('100%').isVisible()).toBeTruthy;
+    await expect(await page.getByText('表现不错！全对了！').isVisible()).toBeTruthy();
+
+    await page.getByRole('button', { name: '下一章节' }).click();
+
+    await expect(await page.getByText('CET-4 第 2 章').first().isVisible()).toBeTruthy();
   });
 });
