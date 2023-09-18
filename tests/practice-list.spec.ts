@@ -8,7 +8,7 @@ test.describe('Practice List', () => {
     await page.waitForTimeout(1000);
 
     // should use testId
-    await page.locator('#root > div').locator('.fixed').locator('svg').click();
+    await page.locator('#root > div').locator('.fixed').locator('svg').last().click();
   });
 
   test('Practice list button click to open the list ', async ({ page }) => {
