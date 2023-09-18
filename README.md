@@ -1,63 +1,66 @@
+<div align=center>
+<img  src="https://github.com/Kaiyiwing/qwerty-learner/raw/master/src/assets/logo.svg"/>
+</div>
 
-## 功能整理
+<h1 align="center">
+  Qwerty Learner AutoTest By Playwright
+</h1>
 
-* Main Page
-* 词典章节
-  * 语言切换
-  * 类型切换
-  * 词典切换
-  * 章节切换
-  * 关闭设置
-* 发音设置
-  * 开关音标显示
-  * 开关单词发音
-  * 开关释义发音
-  * 开关循环发音
-  * 单词发音口音
-* 按键音设置
-  * 开关按键音
-  * 开关效果音
-* 设置单个单词循环
-  * 限制次数
-  * 无限
-* 开关默写模式
-* 开关释义显示
-* 错题本
-  * 数据显示
-    * 点击查看详情
-  * 分页切换
-  * 打开关闭
-* 数据统计
-* 暗夜模式
-* 指法显示
-* 应用设置
-  * 音效设置
-  * 高级设置
-  * 显示设置
-  * 数据设置
-* Start/Restart
-* 当前练习单词列表
-* 练习
-  * 任意键开始
-  * 键盘输入
-  * 时间统计
-  * 输入统计
-  * WPM统计
-  * 正确数统计
-  * 正确率统计
-  * 章节练习完成
-  * 章节练习统计
+<p align="center">
+  对 Qwerty Learner 站点的自动化测试，使用 Playwright
+</p>
 
-* 冒烟测试
-  * 访问站点
-  * 选择词典
-  * 选择章节
-  * 开始练习
-  * 输入正确单词
-  * 输入错误单词
-  * 完成练习
+<p align="center">
+  <a href="https://github.com/Kaiyiwing/qwerty-learner/blob/master/LICENSE"><img src="https://img.shields.io/github/license/KaiyiWing/qwerty-learner" alt="License"></a>
+  <a><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"/></a>
+  <a><img src="https://img.shields.io/badge/Powered%20by-Playwright-green"/></a>
+</p>
 
+<div align=center>
+<img  src="docs/Screenshot.png"/>
+</div>
 
-多屏幕适配
+## 📸 写在最前
 
-~~音频输出~~
+非常感谢 [@Kaiyiwing](https://github.com/Kaiyiwing) 的 Qwerty Learner 项目，为我们提供了一种好的练习英语的方式。
+
+同时，也希望通过本项目，为 Qwerty Learner 提供一些自动化测试的支持。
+
+项目直通车 👉 [Qwerty Learner](https://qwerty.kaiyi.cool/)
+<br/>
+<br />
+
+## 测试平台
+* chromuium
+* firefox
+* webkit
+
+## 测试功能
+目前对 Qwerty Learner 的基本功能进行了测试：
+
+* 主页面显示
+* 主题切换
+* 练习列表
+* 词典管理
+  * 语言选择
+  * 分类选择
+  * 词典选择
+  * 章节选择
+* 英语练习
+  * 正确输入
+  * 错误输入
+  * 完成章节
+  * 数据统计
+
+### 后续计划
+
+* [ ] 屏幕自适应
+* [ ] 应用设置
+  * [ ] 导出
+  * [ ] 导出
+* [ ] 各种开关设置
+
+## 开源项目
+
+- [Playwright](https://playwright.dev/)  Playwright enables reliable end-to-end testing for modern web apps.
+
