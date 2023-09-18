@@ -54,4 +54,12 @@ test.describe('Dictionary manage', () => {
     await page.waitForURL('**\/');
     await expect(await page.getByText('CET-4 第 2 章').isVisible()).toBeTruthy();
   });
+
+  test.only('Close dictionary settings', async ({ page }) => {
+    // should use testId
+    await page.locator('main > div > svg').first().click();
+
+    await page.waitForURL('**\/');
+    await expect(await page.getByText('CET-4 第 1 章').isVisible()).toBeTruthy();
+  });
 });
