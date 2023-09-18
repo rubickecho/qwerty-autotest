@@ -9,6 +9,7 @@ test.describe('Practice List', () => {
 
     // should use testId
     await page.locator('#root > div').locator('.fixed').locator('svg').last().click();
+    await page.waitForTimeout(1000);
   });
 
   test('Practice list button click to open the list ', async ({ page }) => {
