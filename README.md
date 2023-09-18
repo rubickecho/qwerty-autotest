@@ -16,10 +16,6 @@
   <a><img src="https://img.shields.io/badge/Powered%20by-Playwright-green"/></a>
 </p>
 
-<div align=center>
-<img  src="docs/Screenshot.png"/>
-</div>
-
 ## 📸 写在最前
 
 非常感谢 [@Kaiyiwing](https://github.com/Kaiyiwing) 的 Qwerty Learner 项目，为我们提供了一种好的练习英语的方式。
